@@ -38,7 +38,7 @@ var buyerGrape = {
 }
 myFunction();
 
-$("#apple").on('click', 'button', function () {
+$("#apple").on('click', '.buttonBuy', function () {
 	if (totalValue > apple.price) {
 		totalValue -= apple.price;
 		console.log('total value', totalValue);
@@ -53,7 +53,23 @@ $("#apple").on('click', 'button', function () {
 		alert("You do not have enough money for that item!");
 	}
 });
-$("#orange").on('click', 'button', function () {
+
+$("#apple").on('click', '.buttonSell', function () {
+	if (buyerApple.buyerAppleAmount > 0) {
+		totalValue += apple.price;
+		console.log('total value', totalValue);
+		$('#totalValue').text(totalValue.toFixed(2));
+		buyerApple.buyerAppleAmount-= 1;
+		$('#appleAmount').text(buyerApple.buyerAppleAmount);
+		buyerApple.buyerAppleTotalPrice-=apple.price;
+		$('#totalApplePrice').text((buyerApple.buyerAppleTotalPrice).toFixed(2));
+	} else {
+		alert("Out of apples!");
+	}
+});
+
+
+$("#orange").on('click', '.buttonBuy', function () {
 	if (totalValue > orange.price) {
 		totalValue -= orange.price;
 		console.log('total value', totalValue);
@@ -68,7 +84,22 @@ $("#orange").on('click', 'button', function () {
 		alert("You do not have enough money for that item!");
 	}
 });
-$("#banana").on('click', 'button', function () {
+
+$("#orange").on('click', '.buttonSell', function () {
+	if (buyerOrange.buyerOrangeAmount > 0) {
+		totalValue += orange.price;
+		console.log('total value', totalValue);
+		$('#totalValue').text(totalValue.toFixed(2));
+		buyerOrange.buyerOrangeAmount-= 1;
+		$('#orangeAmount').text(buyerOrange.buyerOrangeAmount);
+		buyerOrange.buyerOrangeTotalPrice-=orange.price;
+		$('#totalOrangePrice').text((buyerOrange.buyerOrangeTotalPrice).toFixed(2));
+	} else {
+		alert("Out of oranges!");
+	}
+});
+
+$("#banana").on('click', '.buttonBuy', function () {
 	if (totalValue > banana.price) {
 		totalValue -= banana.price;
 		console.log('total value', totalValue);
@@ -83,7 +114,22 @@ $("#banana").on('click', 'button', function () {
 		alert("You do not have enough money for that item!");
 	}
 });
-$("#grape").on('click', 'button', function () {
+
+$("#banana").on('click', '.buttonSell', function () {
+	if (buyerBanana.buyerBananaAmount > 0) {
+		totalValue += banana.price;
+		console.log('total value', totalValue);
+		$('#totalValue').text(totalValue.toFixed(2));
+		buyerBanana.buyerBananaAmount-= 1;
+		$('#bananaAmount').text(buyerBanana.buyerBananaAmount);
+		buyerBanana.buyerBananaTotalPrice-=banana.price;
+		$('#totalBananaPrice').text((buyerBanana.buyerBananaTotalPrice).toFixed(2));
+	} else {
+		alert("Out of bananas!");
+	}
+});
+
+$("#grape").on('click', '.buttonBuy', function () {
 	if (totalValue > grape.price) {
 		totalValue -= grape.price;
 		console.log('total value', totalValue);
@@ -96,6 +142,20 @@ $("#grape").on('click', 'button', function () {
 		$('#averageGrapePrice').text((buyerGrape.buyerGrapeAveragePrice).toFixed(2));
 	} else {
 		alert("You do not have enough money for that item!");
+	}
+});
+
+$("#grape").on('click', '.buttonSell', function () {
+	if (buyerGrape.buyerGrapeAmount > 0) {
+		totalValue += grape.price;
+		console.log('total value', totalValue);
+		$('#totalValue').text(totalValue.toFixed(2));
+		buyerGrape.buyerGrapeAmount-= 1;
+		$('#grapeAmount').text(buyerGrape.buyerGrapeAmount);
+		buyerGrape.buyerGrapeTotalPrice-=grape.price;
+		$('#totalGrapePrice').text((buyerGrape.buyerGrapeTotalPrice).toFixed(2));
+	} else {
+		alert("Out of grapes!");
 	}
 });
 
